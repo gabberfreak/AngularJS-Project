@@ -1,0 +1,103 @@
+<div class="row" ng-if="authService.isAnonymous()">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <h3 class="panel-title">Home</h3>
+            </div>
+            <div class="panel-body">
+                <div class="center-block">
+                    <a href="#/login" class="btn btn-success">Login</a>
+                    <a href="#/register" class="btn btn-link">Register</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+
+<div class="container" ng-if="authService.isNormalUser()">
+    <div ng-controller="DashboardController">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <img class="loadingImage" src="images/loading.gif" ng-hide="readyDownload" alt="loading image">
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+        <h1 ng-show="readyDownload">{{pageTitle}}</h1>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10" ng-show="readyDownload">
+                <table class="table table-striped table-hover " ng-cloak>
+                    <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Project</th>
+                        <th>Due Date</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr dir-paginate="issue in issues | itemsPerPage: 3">
+                        <td><p><a ng-controller="IssueController" ng-click="issueParams(issue.Id)">{{issue.Title}}</a>
+                        </p></td>
+                        <td><p class="fixed-description">{{issue.Description}}</p></td>
+                        <td><p><a ng-controller="EditProjectController" ng-click="projectId(issue.Project.Id)">{{issue.Project.Name}}</a></p></td>
+                        <td><p class="due-date">{{issue.DueDate | date : 'dd-MM-yyyy'}}</p></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div>
+                    <dir-pagination-controls></dir-pagination-controls>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+
+    </div>
+</div>
+
+<div class="container" ng-if="authService.isAdminUser()">
+    <div ng-controller="AdminController">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <img class="loadingImage" src="images/loading.gif" ng-hide="readyDownload" alt="loading image">
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+        <h1 ng-show="readyDownload">{{pageTitle}}</h1>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10" ng-show="readyDownload">
+                <table class="table table-striped table-hover " ng-cloak>
+                    <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Project</th>
+                        <th>Due Date</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr dir-paginate="issue in issues | itemsPerPage: 10">
+                        <td><p><a ng-controller="IssueController" ng-click="issueParams(issue.Id)">{{issue.Title}}</a>
+                        </p></td>
+                        <td><p class="fixed-description">{{issue.Description}}</p></td>
+                        <td><p><a ng-controller="EditProjectController" ng-click="projectId(issue.Project.Id)">{{issue.Project.Name}}</a></p></td>
+                        <td><p class="due-date">{{issue.DueDate | date : 'dd-MM-yyyy'}}</p></td>
+                    </tr>
+
+                    </tbody>
+
+                </table>
+                <div>
+                    <dir-pagination-controls></dir-pagination-controls>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+
+    </div>
+</div>

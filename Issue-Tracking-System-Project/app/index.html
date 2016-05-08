@@ -1,0 +1,62 @@
+<html lang="en" ng-app="issueTrackingSystem" ng-controller="AppController">
+   <head>
+    <meta charset="utf-8">
+
+    <title>Issue Tracking System</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="css/app.css">
+    <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body >
+<div id="wrapper">
+<header>
+    <div ng-include="'templates/partial/header.html'"></div>
+</header>
+
+    <div class="center-view" ng-view="ngView"></div>
+
+
+<footer>
+    <nav class="navbar navbar-inverse">
+        <p>© 2014 by Software University Foundation, No Rights Reserved</p>
+    </nav>
+</footer>
+</div>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-filter/dist/angular-filter.js"></script>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/angularUtils-pagination/dirPagination.js"></script>
+
+<script src="js/app.js"></script>
+
+<script src="js/services/userService.js"></script>
+<script src="js/services/authenticationService.js"></script>
+<script src="js/services/notifyService.js"></script>
+<script src="js/services/projectService.js"></script>
+<script src="js/services/issueService.js"></script>
+
+<script src="js/controllers/AppController.js"></script>
+<script src="js/controllers/HomeController.js"></script>
+<script src="js/controllers/LoginController.js"></script>
+<script src="js/controllers/RegisterController.js"></script>
+<script src="js/controllers/user/DashboardController.js"></script>
+<script src="js/controllers/user/ProjectsController.js"></script>
+<script src="js/controllers/projectLeader/IssueController.js"></script>
+<script src="js/controllers/projectLeader/EditController.js"></script>
+<script src="js/controllers/projectLeader/AddController.js"></script>
+<script src="js/controllers/projectLeader/AddCommentController.js"></script>
+<script src="js/controllers/admin/AdminController.js"></script>
+<script src="js/controllers/admin/AdminProfileController.js"></script>
+<script src="js/controllers/admin/MakeAdminController.js"></script>
+<script src="js/controllers/admin/AddProjectController.js"></script>
+<script src="js/controllers/admin/EditProjectController.js"></script>
+
+<script src="components/version/version.js"></script>
+<script src="components/version/version-directive.js"></script>
+<script src="components/version/interpolate-filter.js"></script>
+</body>
+</html>
